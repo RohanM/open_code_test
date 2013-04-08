@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  validates_presence_of :nickname, :oauth_token
+  validates :nickname, :presence => true, :uniqueness => true
+  validates :oauth_token, :presence => true
 
   attr_accessible :nickname, :oauth_token
 end
