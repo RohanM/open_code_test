@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     session[:token] = auth_hash[:credentials][:token]
 
-    redirect_to root_path
+    redirect_to new_test_path
   end
 
   def failure
