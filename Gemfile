@@ -5,6 +5,8 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
+gem 'omniauth-github'
+gem 'pry'
 
 group :test, :development do
   gem 'rspec-rails'
