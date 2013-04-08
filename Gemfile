@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 
 gem 'pg'
-
+gem 'twitter-bootstrap-rails'
+gem 'haml'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
