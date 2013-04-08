@@ -59,8 +59,7 @@ module OpenCodeTest
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    # Hackity-hack: Run-time asset compile so heroku finds twitter bootstrap's images
+    # Do not initialise full stack - Heroku compatibility
     config.assets.initialize_on_precompile = false
-    config.assets.compile = true
   end
 end
