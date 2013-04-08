@@ -1,9 +1,15 @@
 class SessionsController < ApplicationController
   def create
-    # auth_hash[:credentials][:token]
-    # auth_hash[:info][:nickname]
+    @user = User.find_by_nickname(nickname)
 
-    session[:token] = auth_hash[:credentials][:token]
+    if @user
+      @user.oauth_token = oauth_token
+      @user.save!
+    else
+      @user = User.create! nickname: nickname, oauth_token: oauth_token
+    end
+
+    session[:user_id] = @user.id
 
     redirect_to new_test_path
   end
@@ -13,6 +19,14 @@ class SessionsController < ApplicationController
 
 
   protected
+
+  def nickname
+    auth_hash[:info][:nickname]
+  end
+
+  def oauth_token
+    auth_hash[:credentials][:token]
+  end
 
   def auth_hash
     request.env['omniauth.auth']
