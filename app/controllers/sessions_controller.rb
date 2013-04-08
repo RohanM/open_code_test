@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def failure
+    message = params[:message].gsub('_', ' ').capitalize
+    redirect_to root_path, notice: "Authentication with GitHub failed: #{message}"
   end
 
 

@@ -51,7 +51,5 @@ describe SessionsController do
         assert_redirected_to new_test_path
       end
     end
-
-    it "signin failure"
   end
 end
